@@ -123,3 +123,15 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+import os
+
+# Allow Vercel's domain
+ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1', 'localhost']
+
+# Static file settings
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Optional if using SQLite
+DATABASES['default']['NAME'] = os.path.join(BASE_DIR, 'db.sqlite3')
